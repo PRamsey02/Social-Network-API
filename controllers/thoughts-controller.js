@@ -3,7 +3,7 @@ const { Thoughts, Users } = require('../models');
 
 // Creating thoughtsController
 const thoughtsController = {
-    
+
     // Creates a new thought
     createThoughts({params, body}, res) {
         Thoughts.create(body)
@@ -39,7 +39,7 @@ const thoughtsController = {
         .select('-__v')
         .then(dbThoughtsData => {
             if (!dbThoughtsData) {
-                res.status(404).json({message: 'No thoughts associated with this ID'});
+                res.status(404).json({message: 'No thoughts associated with this ID!'});
                 return;
             }
             res.json(dbThoughtsData)
@@ -57,7 +57,7 @@ const thoughtsController = {
         .select('-__v')
         .then(dbThoughtsData => {
             if (!dbThoughtsData) {
-                res.status(404).json({message: 'No thoughts associated with this ID'});
+                res.status(404).json({message: 'No thoughts associated with this ID!'});
                 return;
             }
             res.json(dbThoughtsData);
@@ -70,7 +70,7 @@ const thoughtsController = {
         Thoughts.findOneAndDelete({_id: params.id})
         .then(dbThoughtsData => {
             if(!dbThoughtsData) {
-                res.status(404).json({message: 'No thoughts associated with this ID'});
+                res.status(404).json({message: 'No thoughts associated with this ID!'});
                 return;
             }
             res.json(dbThoughtsData);
@@ -85,7 +85,7 @@ const thoughtsController = {
         .select('-__v')
         .then(dbThoughts => {
             if (!dbThoughtsData) {
-                res.status(404).json({message: 'No thoughts associated with this ID'});
+                res.status(404).json({message: 'No thoughts associated with this ID!'});
                 return;
             }
             res.json(dbThoughtsData);
@@ -98,7 +98,7 @@ const thoughtsController = {
         Thoughts.findOneAndUpdate({_id: params.thoughtsId}, {$pull: {reactions: {reactionId: params.reactionId}}}, {new: true})
         .then(dbThoughtsData => {
             if (!dbThoughtsData) {
-                res.status(404).json({message: 'No thoughts associated with this ID'});
+                res.status(404).json({message: 'No thoughts associated with this ID!'});
                 return;
             }
             res.json(dbThoughtsData);

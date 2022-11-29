@@ -1,4 +1,4 @@
-// Requiring express route
+// Requiring express router
 const router = require('express').Router();
 
 // Thoughts controller requirements
